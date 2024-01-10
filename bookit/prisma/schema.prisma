@@ -55,21 +55,21 @@ model User {
 }
 
 model Room {
-  id            Int      @id @default(autoincrement())
-  name          String
-  pricePerNight Float    @default(0.0)
-  description   String
-  address       String
-  guestCapacity Int
-  numOfBed      Int
-  internet      Boolean? @default(false)
-  breakfast     Boolean? @default(false)
-  airConitioned Boolean? @default(false)
-  petsAllowed   Boolean? @default(false)
-  roomCleaning  Boolean? @default(false)
-  rating        Int?     @default(0)
-  numOfReviews  Int?     @default(0)
-  images        Image[]
-  category      Category @relation(fields: [categoryId], references: [id])
-  categoryId    Int
+  id             Int      @id @default(autoincrement())
+  name           String
+  pricePerNight  Float    @default(0.0)
+  description    String
+  address        String
+  guestCapacity  Int
+  numOfBeds      Int
+  internet       Boolean? @default(false)
+  breakfast      Boolean? @default(false)
+  airConditioned Boolean? @default(false)
+  petsAllowed    Boolean? @default(false)
+  roomCleaning   Boolean? @default(false)
+  rating         Int?     @default(0)
+  numOfReviews   Int?     @default(0)
+  images         Image[]
+  category       Category @relation(fields: [categoryId], references: [id])
+  categoryId     Int
 }

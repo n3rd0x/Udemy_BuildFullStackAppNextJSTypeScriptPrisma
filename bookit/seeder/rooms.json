@@ -11,7 +11,7 @@
         "airConditioned": false,
         "petsAllowed": false,
         "roomCleaning": true,
-        "category": "King"
+        "categoryId": 0
     },
     {
         "name": "Picturesque 2-Story Farmhouse w/Private Hot Tub",
@@ -25,7 +25,7 @@
         "airConditioned": true,
         "petsAllowed": false,
         "roomCleaning": true,
-        "category": "Twins"
+        "categoryId": 1
     },
     {
         "name": "Downtown Portsmouth Private Getaway! Hot Tub",
@@ -39,7 +39,7 @@
         "airConditioned": true,
         "petsAllowed": true,
         "roomCleaning": false,
-        "category": "King"
+        "categoryId": 0
     },
     {
         "name": "Spacious Suite in a quiet Boston neighborhood.",
@@ -53,7 +53,7 @@
         "airConditioned": true,
         "petsAllowed": false,
         "roomCleaning": true,
-        "category": "Single"
+        "categoryId": 2
     },
     {
         "name": "Shangri-La Hotel, Washington",
@@ -67,7 +67,7 @@
         "airConditioned": true,
         "petsAllowed": false,
         "roomCleaning": true,
-        "category": "King"
+        "categoryId": 0
     },
     {
         "name": "Hotel Chimayo de Santa Fe Rooms",
@@ -81,7 +81,7 @@
         "airConditioned": true,
         "petsAllowed": false,
         "roomCleaning": true,
-        "category": "Twins"
+        "categoryId": 1
     },
     {
         "name": "Hotel Garni Ischgl ☆ 4 star room comfort",
@@ -95,7 +95,7 @@
         "airConditioned": true,
         "petsAllowed": false,
         "roomCleaning": false,
-        "category": "Single"
+        "categoryId": 2
     },
     {
         "name": "The Spa at Base Camp at Kerry Hotel",
@@ -109,6 +109,6 @@
         "airConditioned": true,
         "petsAllowed": false,
         "roomCleaning": true,
-        "category": "Single"
+        "categoryId": 2
     }
 ]

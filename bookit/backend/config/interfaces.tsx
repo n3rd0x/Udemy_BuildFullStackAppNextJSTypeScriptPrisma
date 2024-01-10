@@ -3,7 +3,6 @@ export interface BaseRecord {
     name: string;
 }
 
-
 export interface ImageRecord extends BaseRecord {
     url: string;
 }
@@ -29,10 +28,10 @@ export interface RoomRecord extends BaseRecord {
     description: string;
     address: string;
     guestCapacity: number;
-    numOfBed: number;
+    numOfBeds: number;
     internet?: boolean;
     breakfast?: boolean;
-    airConitioned?: boolean;
+    airConditioned?: boolean;
     petsAllowed?: boolean;
     roomCleaning?: boolean;
     rating?: number;

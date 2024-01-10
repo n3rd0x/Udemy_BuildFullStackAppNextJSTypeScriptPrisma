@@ -3,8 +3,13 @@ import { prisma } from "@/config/prisma";
 import { RoomRecord } from "@/config/interfaces";
 
 export const allRooms = async (req: NextRequest) => {
-    const data = await prisma.category.findMany();
-    return NextResponse.json(data);
+    const perPage: number = 8;
+    const rooms = await prisma.room.findMany();
+    return NextResponse.json({
+        success: true,
+        perPage,
+        rooms,
+    });
 };
 
 export const newRoom = async (req: NextRequest) => {

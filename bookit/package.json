@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "seeder": "tsc --jsx react-jsx seeder/seeder.tsx --outDir .temp && node .temp/seeder/seeder.js && rm -rf .temp"
   },
   "dependencies": {
     "@kalissaac/prisma-typegen": "^0.0.7",
