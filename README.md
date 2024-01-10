@@ -50,6 +50,9 @@ npx prisma migrate dev --name <Name>
 # Generate database based on schema (needs to be defined).
 npx prisma generate
 
+# Format schema and autofix relations
+npx prisma format
+
 # Run 'production mode' under development (testing purpose).
 NODE_ENV=production npm run dev
 ```
@@ -78,6 +81,16 @@ model User {
   email String  @unique
   name  String?
 }
+```
+
+
+## Auto Generate Interface of Schema
+```
+# Install prisma-typegen package
+npm install @@kalissaac/prisma-typegen
+
+# Usage (generate 'index.ts' in output path):
+npx prisma-typegen <OutputPath>
 ```
 
 

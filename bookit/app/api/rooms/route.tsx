@@ -1,4 +1,4 @@
-import { allRooms, newRoom } from "@controller/roomControllers";
+import { allRooms, newRoom } from "@/controller/roomControllers";
 import { createEdgeRouter } from "next-connect";
 import { NextRequest } from "next/server";
 

@@ -142,3 +142,4 @@ __pycache__
 Tmp
 Temp
 */dist
+*/prisma/migrations

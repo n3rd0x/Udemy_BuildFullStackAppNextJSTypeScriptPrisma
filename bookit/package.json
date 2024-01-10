@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@kalissaac/prisma-typegen": "^0.0.7",
     "@prisma/client": "^5.8.0",
     "next": "14.0.4",
     "next-connect": "^1.0.0",
