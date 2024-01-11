@@ -18,11 +18,11 @@
         "name": "next"
       }
     ],
-    "baseUrl": "./",
+    "baseUrl": ".",
     "paths": {
         "@/*": ["*"],
         "@/config/*": ["backend/config/*"],
-        "@/controller/*": ["backend/controllers/*"],
+        "@/controller/*": ["backend/controller/*"],
         "@/prisma/*": ["prisma/*"]
     }
   },

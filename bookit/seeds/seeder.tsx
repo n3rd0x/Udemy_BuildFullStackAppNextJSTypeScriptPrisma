@@ -1,12 +1,16 @@
 import { promises as fs } from "fs";
-import { prisma } from "../backend/config/prisma";
+import { PrismaClient } from "@prisma/client";
 import { RoomRecord } from "../backend/config/interfaces";
 
-// NOT WORKING
+const prisma = new PrismaClient();
+
 const seedRooms = async () => {
     try {
-        const filePath = process.cwd() + "/seeder/rooms.json";
-        const contents =  await fs.readFile(filePath, "utf-8");
+        console.log("========================================");
+        console.log("= Seeding Rooms")
+        console.log("========================================");
+        const filePath = process.cwd() + "/seeds/rooms.json";
+        const contents = await fs.readFile(filePath, "utf-8");
         const json = JSON.parse(contents);
 
         await prisma.room.deleteMany();
@@ -23,4 +27,8 @@ const seedRooms = async () => {
     }
 };
 
-seedRooms();
+function Seeds() {
+    seedRooms();
+}
+
+Seeds();

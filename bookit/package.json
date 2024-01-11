@@ -1,28 +1,29 @@
 {
-  "name": "bookit",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "seeder": "tsc --jsx react-jsx seeder/seeder.tsx --outDir .temp && node .temp/seeder/seeder.js && rm -rf .temp"
-  },
-  "dependencies": {
-    "@kalissaac/prisma-typegen": "^0.0.7",
-    "@prisma/client": "^5.8.0",
-    "next": "14.0.4",
-    "next-connect": "^1.0.0",
-    "prisma": "^5.8.0",
-    "react": "^18",
-    "react-dom": "^18",
-    "sqlite": "^5.1.1"
-  },
-  "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "typescript": "^5"
-  }
+    "name": "bookit",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint",
+        "resetdev": "rm -f dist/development.db && npx prisma migrate dev --name dev && npx prisma generate",
+        "seeds": "tsc --jsx react-jsx seeds/seeder.tsx --outDir .temp && node .temp/seeds/seeder.js && rm -rf .temp"
+    },
+    "dependencies": {
+        "@kalissaac/prisma-typegen": "^0.0.7",
+        "@prisma/client": "^5.8.0",
+        "next": "14.0.4",
+        "next-connect": "^1.0.0",
+        "prisma": "^5.8.0",
+        "react": "^18",
+        "react-dom": "^18",
+        "sqlite": "^5.1.1"
+    },
+    "devDependencies": {
+        "@types/node": "^20",
+        "@types/react": "^18",
+        "@types/react-dom": "^18",
+        "typescript": "^5"
+    }
 }

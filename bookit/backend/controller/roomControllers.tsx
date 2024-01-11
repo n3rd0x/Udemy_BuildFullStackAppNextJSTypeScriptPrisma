@@ -22,3 +22,28 @@ export const newRoom = async (req: NextRequest) => {
         room,
     });
 };
+
+export const getRoomDetails = async (
+    req: NextRequest,
+    { params }: { params: { id: string } }
+) => {
+    const room = await prisma.room.findUnique({
+        where: { id: Number(params.id) },
+    });
+
+    if (!room) {
+        return NextResponse.json(
+            {
+                message: "Room not found",
+            },
+            {
+                status: 404,
+            }
+        );
+    }
+
+    return NextResponse.json({
+        success: true,
+        room,
+    });
+};
