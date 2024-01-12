@@ -127,6 +127,13 @@ npx prisma studio
     - Object-Relational Mapping (ORM) for simplifies database access and management by providing a type-safe and intuitive way to interact with databases.
 
 
+## Tools
+
+- **Visual Studio Code**
+    - **Tunder Client**
+        - Easy way to use GET, PUT, POST (like Postman)
+
+
 ## Resources
 - Github (https://github.com/ghulamabbas2/bookit-v2)
 

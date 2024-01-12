@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/config/prisma";
 import { RoomRecord } from "@/config/interfaces";
 
+// api/rooms
 export const allRooms = async (req: NextRequest) => {
     const perPage: number = 8;
     const rooms = await prisma.room.findMany();
@@ -12,6 +13,7 @@ export const allRooms = async (req: NextRequest) => {
     });
 };
 
+// api/rooms
 export const newRoom = async (req: NextRequest) => {
     const body: RoomRecord = await req.json();
     const room = await prisma.room.create({
@@ -23,7 +25,8 @@ export const newRoom = async (req: NextRequest) => {
     });
 };
 
-export const getRoomDetails = async (
+// api/rooms/:id
+export const getRoom = async (
     req: NextRequest,
     { params }: { params: { id: string } }
 ) => {
@@ -41,6 +44,39 @@ export const getRoomDetails = async (
             }
         );
     }
+
+    return NextResponse.json({
+        success: true,
+        room,
+    });
+};
+
+// api/rooms/:id
+export const updateRoom = async (
+    req: NextRequest,
+    { params }: { params: { id: string } }
+) => {
+    let room = await prisma.room.findUnique({
+        where: { id: Number(params.id) },
+    });
+
+    if (!room) {
+        return NextResponse.json(
+            {
+                message: "Room not found",
+            },
+            {
+                status: 404,
+            }
+        );
+    }
+
+    const body: RoomRecord = await req.json();
+    room = await prisma.room.upsert({
+        where: { id: Number(params.id) },
+        update: body,
+        create: body,
+    });
 
     return NextResponse.json({
         success: true,
