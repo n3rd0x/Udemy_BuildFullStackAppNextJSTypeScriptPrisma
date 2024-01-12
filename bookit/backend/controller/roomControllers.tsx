@@ -13,18 +13,6 @@ export const allRooms = async (req: NextRequest) => {
     });
 };
 
-// api/rooms
-export const newRoom = async (req: NextRequest) => {
-    const body: RoomRecord = await req.json();
-    const room = await prisma.room.create({
-        data: body,
-    });
-    return NextResponse.json({
-        success: true,
-        room,
-    });
-};
-
 // api/rooms/:id
 export const getRoom = async (
     req: NextRequest,
@@ -51,7 +39,19 @@ export const getRoom = async (
     });
 };
 
-// api/rooms/:id
+// api/admin/rooms
+export const newRoom = async (req: NextRequest) => {
+    const body: RoomRecord = await req.json();
+    const room = await prisma.room.create({
+        data: body,
+    });
+    return NextResponse.json({
+        success: true,
+        room,
+    });
+};
+
+// api/admin/rooms/:id
 export const updateRoom = async (
     req: NextRequest,
     { params }: { params: { id: string } }
@@ -81,5 +81,36 @@ export const updateRoom = async (
     return NextResponse.json({
         success: true,
         room,
+    });
+};
+
+// api/admin/rooms/:id
+export const deleteRoom = async (
+    req: NextRequest,
+    { params }: { params: { id: string } }
+) => {
+    let room = await prisma.room.findUnique({
+        where: { id: Number(params.id) },
+    });
+
+    if (!room) {
+        return NextResponse.json(
+            {
+                message: "Room not found",
+            },
+            {
+                status: 404,
+            }
+        );
+    }
+
+    // TODO: Delete images associated with the room
+
+    await prisma.room.delete({
+        where: { id: Number(params.id) },
+    });
+
+    return NextResponse.json({
+        success: true,
     });
 };
