@@ -1,19 +1,19 @@
-export interface BaseRecord {
+export interface IRecordBase {
     id?: number;
     name: string;
 }
 
-export interface ImageRecord extends BaseRecord {
+export interface IRecordImage extends IRecordBase {
     url: string;
 }
 
-export interface ReviewsRecord extends BaseRecord {
+export interface IRecordReview extends IRecordBase {
     userId: number;
     rating: number;
     comment: string;
 }
 
-export interface UserRecord extends BaseRecord {
+export interface IRecordUser extends IRecordBase {
     email: string;
     password: string;
     avatarId: number;
@@ -23,7 +23,7 @@ export interface UserRecord extends BaseRecord {
     resetPasswordExpired?: Date;
 }
 
-export interface RoomRecord extends BaseRecord {
+export interface IRecordRoom extends IRecordBase {
     pricePerNight: number;
     description: string;
     address: string;
