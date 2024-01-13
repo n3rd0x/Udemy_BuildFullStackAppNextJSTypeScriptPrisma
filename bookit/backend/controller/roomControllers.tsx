@@ -9,7 +9,7 @@ import { search } from "@/util/search";
 // api/rooms
 // ----------------------------------------
 export const allRooms = catchErrors(async (req: NextRequest) => {
-    const perPage: number = 8;
+    const pagination: number = 2;
     //const rooms = await prisma.room.findMany();
 
     // REF: https://nextjs.org/docs/app/building-your-application/routing/route-handlers
@@ -20,13 +20,12 @@ export const allRooms = catchErrors(async (req: NextRequest) => {
         strQuery[key] = value;
     });
 
-    const filter = new search.Filter(prisma.room, strQuery).search();
+    const filter = new search.Filter(prisma.room, strQuery).exec(pagination);
 
-    const rooms = await filter.queryer;
+    const rooms = await filter.query;
 
     return NextResponse.json({
         success: true,
-        perPage,
         rooms,
     });
 });
