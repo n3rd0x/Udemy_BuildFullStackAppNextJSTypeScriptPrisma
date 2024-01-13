@@ -12,7 +12,7 @@ export const catchErrors =
             return await handler(req, params);
         } catch (e: any) {
             if (e?.name === "CastError") {
-                e.message = "Resource not found. Invalid ${e?.path}";
+                e.message = `Resource not found. Invalid ${e?.path}`;
                 e.statusCode = 400;
             }
 

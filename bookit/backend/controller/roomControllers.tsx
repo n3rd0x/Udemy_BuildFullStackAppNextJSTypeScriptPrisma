@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/config/prisma";
 import { IRecordRoom } from "@/config/interfaces";
 import { catchErrors } from "@/middleware/catchErrors";
-import { RoomNotFound } from "@/util/errorHandler";
+import { error } from "@/util/errorHandler";
 
 // ----------------------------------------
 // api/rooms
@@ -27,7 +27,7 @@ export const getRoom = catchErrors(
         });
 
         if (!room) {
-            throw RoomNotFound;
+            throw new error.RoomNotFound(params.id);
         }
 
         return NextResponse.json({
@@ -61,7 +61,7 @@ export const updateRoom = catchErrors(
         });
 
         if (!room) {
-            throw RoomNotFound;
+            throw new error.RoomNotFound(params.id);
         }
 
         const body: IRecordRoom = await req.json();
@@ -88,7 +88,7 @@ export const deleteRoom = catchErrors(
         });
 
         if (!room) {
-            throw RoomNotFound;
+            throw new error.RoomNotFound(params.id);
         }
 
         // TODO: Delete images associated with the room
