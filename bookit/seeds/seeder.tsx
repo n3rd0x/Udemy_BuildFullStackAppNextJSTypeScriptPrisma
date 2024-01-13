@@ -1,6 +1,6 @@
 import { promises as fs } from "fs";
 import { PrismaClient } from "@prisma/client";
-import { RoomRecord } from "../backend/config/interfaces";
+import { IRecordRoom } from "../backend/config/interfaces";
 
 const prisma = new PrismaClient();
 
@@ -17,7 +17,7 @@ const seedRooms = async () => {
         console.log("Rooms are deleted");
 
         for (const itr of json) {
-            const room: RoomRecord = itr;
+            const room: IRecordRoom = itr;
             await prisma.room.create({ data: room });
         }
         console.log("Rooms are added");
