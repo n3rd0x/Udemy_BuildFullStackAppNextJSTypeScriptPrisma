@@ -20,7 +20,8 @@
     ],
     "baseUrl": ".",
     "paths": {
-        "@/*": ["*"],
+        "@/*": ["app/*"],
+        "@/component/*": ["app/component/*"],
         "@/config/*": ["backend/config/*"],
         "@/controller/*": ["backend/controller/*"],
         "@/middleware/*": ["backend/middleware/*"],

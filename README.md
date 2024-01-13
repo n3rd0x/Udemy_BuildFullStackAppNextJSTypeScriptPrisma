@@ -58,6 +58,16 @@ NODE_ENV=production npm run dev
 ```
 
 
+## Tailwindcss
+```
+# Install
+npm install -D tailwindcss postcss autoprefixer
+
+# Initialise with configuration file
+npx tailwindcss init -p
+```
+
+
 ## Prisma Schema
 Example.
 

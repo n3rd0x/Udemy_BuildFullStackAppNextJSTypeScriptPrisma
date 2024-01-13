@@ -23,9 +23,12 @@ export const allRooms = catchErrors(async (req: NextRequest) => {
     const filter = new search.Filter(prisma.room, strQuery).exec(pagination);
 
     const rooms = await filter.query;
+    const numRooms = rooms.length;
 
     return NextResponse.json({
         success: true,
+        numRooms,
+        pagination,
         rooms,
     });
 });
