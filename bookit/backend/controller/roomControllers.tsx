@@ -11,7 +11,7 @@ import { search } from "@/util/search";
 export const allRooms = catchErrors(async (req: NextRequest) => {
     const pagination: number = 2;
     //const rooms = await prisma.room.findMany();
-
+    
     // REF: https://nextjs.org/docs/app/building-your-application/routing/route-handlers
     // Example: app/products/api/route.ts
     const { searchParams } = new URL(req.url);

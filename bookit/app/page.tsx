@@ -1,19 +1,18 @@
-import RoomItem from "@/component/roomItem";
-import { IRecordRoom } from "@/config/interfaces";
+import Home from "@/component/home";
+import Error from "@/error";
+export const dynamic = "force-dynamic";
 
 const getRooms = async () => {
-    // Not caching the data.
     const res = await fetch(`${process.env.API_URL}/api/rooms`);
 
     return res.json();
 };
 
-export default async function Home() {
-    const rooms = await getRooms();
-    return (
-        <div className="p-6">
-            <h1 className="text-4xl text-bold">{process.env.WEBSITE_NAME}</h1>
-            <RoomItem />
-        </div>
-    );
+export default async function HomePage() {
+    const data = await getRooms();
+    if (data?.message) {
+        return <Error error={data} />;
+    }
+
+    return <Home data={data} />;
 }
