@@ -40,7 +40,8 @@ export module search {
             const skip = pagination * (curPage - 1);
 
             if (pagination > 0) {
-                query = { ...query, skip: skip, take: pagination };
+                //query = { ...query, skip: skip, take: pagination };
+                query = { ...query, skip: skip };
             }
 
             this.query = this.query.findMany(query);

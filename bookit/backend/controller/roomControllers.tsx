@@ -8,10 +8,7 @@ import { search } from "@/util/search";
 // ----------------------------------------
 // api/rooms
 // ----------------------------------------
-export const allRooms = catchErrors(async (req: NextRequest) => {
-    const pagination: number = 2;
-    //const rooms = await prisma.room.findMany();
-    
+export const allRooms = catchErrors(async (req: NextRequest) => {  
     // REF: https://nextjs.org/docs/app/building-your-application/routing/route-handlers
     // Example: app/products/api/route.ts
     const { searchParams } = new URL(req.url);
@@ -19,6 +16,8 @@ export const allRooms = catchErrors(async (req: NextRequest) => {
     searchParams.forEach((value, key) => {
         strQuery[key] = value;
     });
+
+    const pagination: number = (strQuery.length > 0) ? 2 : 0;
 
     const filter = new search.Filter(prisma.room, strQuery).exec(pagination);
 
@@ -28,6 +27,7 @@ export const allRooms = catchErrors(async (req: NextRequest) => {
     return NextResponse.json({
         success: true,
         pagination,
+        numRooms,
         rooms,
     });
 });
