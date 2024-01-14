@@ -136,6 +136,10 @@ npx prisma studio
 - **Prisma**
     - Object-Relational Mapping (ORM) for simplifies database access and management by providing a type-safe and intuitive way to interact with databases.
 
+```
+npm install --save react-icons react-star-ratings react-hot-toast
+```
+
 
 ## Tools
 

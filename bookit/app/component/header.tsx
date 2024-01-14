@@ -74,8 +74,8 @@ export default function Header() {
             <div
                 className={
                     menuOpen
-                        ? "fixed left-0 top-0 w-[65%] sm:hidden h-screen bg-[#ccf0f3] p-10 ease-in duration-500"
-                        : "fixed left-[-100%] top-0 w-[65%] sm:hidden h-screen bg-[#ccf0f3] p-10 ease-in duration-500"
+                        ? "fixed left-0 top-0 w-[65%] sm:hidden h-screen bg-[#ccf0f3] p-10 ease-in duration-500 z-50"
+                        : "fixed left-[-100%] top-0 w-[65%] sm:hidden h-screen bg-[#ccf0f3] p-10 ease-in duration-500 z-50"
                 }
             >
                 <div
