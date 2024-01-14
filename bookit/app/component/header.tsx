@@ -124,7 +124,7 @@ export default function Header() {
                 </div>
                 <div className="flex justify-around pt-4">
                     <div className="flex items-center">
-                        BookIT
+                        {process.env.WEBSITE_NAME}
                         <AiOutlineCopyrightCircle size="30" />
                     </div>
                 </div>

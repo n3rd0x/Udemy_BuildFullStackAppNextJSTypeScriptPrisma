@@ -27,7 +27,6 @@ export const allRooms = catchErrors(async (req: NextRequest) => {
 
     return NextResponse.json({
         success: true,
-        numRooms,
         pagination,
         rooms,
     });

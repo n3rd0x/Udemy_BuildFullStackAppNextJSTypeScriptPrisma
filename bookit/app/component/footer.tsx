@@ -9,7 +9,7 @@ export default function Footer() {
                     href="https://www.udemy.com/course/nextjs-build-full-stack-apps-with-nextjs-using-redux"
                     target="_blank"
                 >
-                    BookIT
+                    {process.env.WEBSITE_NAME}
                 </Link>{" "}
                 &copy; {date}
             </p>
